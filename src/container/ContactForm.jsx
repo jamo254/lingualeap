@@ -7,7 +7,7 @@ const ContactForm = () => {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
     const [emailSent, setEmailSent] = useState(false);
     const [phoneNumber, setPhoneNumber] = useState('+79771100314');  // No spaces, international format
-    const [whatsapp, setWhatsapp] = useState('+15555555555');  // WhatsApp number in the correct format
+    const [whatsapp, setWhatsapp] = useState('+79771100314');  // WhatsApp number in the correct format
     const [telegram, setTelegram] = useState('jagaban_bigboss');  // Telegram username without @
 
     const handleInputChange = (e) => {
