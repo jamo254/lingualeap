@@ -1,22 +1,25 @@
-// Pricing Card component
+import React from 'react';
 import { Check } from "lucide-react";
 
-const PricingCard = ({ title, price, features }) => (
-    <div className="bg-white p-6 rounded-lg shadow-md text-center transform transition duration-500 hover:scale-105">
-        <h3 className="text-2xl font-semibold mb-4">{ title }</h3>
-        <p className="text-3xl font-bold text-indigo-600 mb-6">{ price }</p>
-        <ul className="space-y-2 mb-6">
+const PricingCard = ({ title, price, features, onSelect }) => (
+    <div className="bg-white p-6 rounded-lg shadow-lg">
+        <h3 className="text-2xl font-bold mb-4">{ title }</h3>
+        <p className="text-4xl font-bold mb-6">{ price }</p>
+        <ul className="mb-6">
             { features.map((feature, idx) => (
-                <li key={ idx } className="flex items-center justify-center">
+                <li key={ idx } className="flex items-center mb-2">
                     <Check className="text-green-500 mr-2" size={ 16 } />
-                    { feature }
+                    <span>{ feature }</span>
                 </li>
             )) }
         </ul>
-        <button className="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition duration-300">
+        <button
+            onClick={ () => onSelect({ title, price, features }) }
+            className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition duration-300"
+        >
             Выбрать
         </button>
     </div>
 );
 
-export default PricingCard
+export default PricingCard;

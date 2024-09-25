@@ -11,6 +11,7 @@ import { Book, Globe, Users, Calendar, Check, ChevronUp } from 'lucide-react';
 const LandingPage = () => {
     const [isNavOpen, setIsNavOpen] = useState(false);
     const [showScrollTop, setShowScrollTop] = useState(false);
+    const [selectedCourse, setSelectedCourse] = useState(null);
 
     const contactFormRef = useRef(null);  // Create a ref for the ContactForm section
 
@@ -35,6 +36,12 @@ const LandingPage = () => {
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+
+    const handleCourseSelect = (course) => {
+        setSelectedCourse(course);
+        scrollToContactForm();
     };
 
     const courses = [
@@ -137,14 +144,12 @@ const LandingPage = () => {
             <header className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-32">
                 <div className="container mx-auto text-center px-4">
                     <h1 className="text-5xl font-bold mb-4">Откройте мир с "LinguaEdge"</h1>
-                    <p className="text-xl mb-10">Изучайте иностранные языки с носителями языка</p>
+                    <p className="text-xl mb-10">Изучайте иностранные языки с профессионалами</p>
                     <button className="bg-white text-indigo-600 px-10 py-4 rounded-full font-bold hover:bg-indigo-100 transition duration-300 text-lg"
                         onClick={ scrollToContactForm }  // Scroll to ContactForm on click
                     >
                         Записаться на пробный урок
                     </button>
-
-
                 </div>
             </header>
 
@@ -190,10 +195,15 @@ const LandingPage = () => {
             <Section id="цены" title="Наши тарифы" className="bg-gray-100">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     { pricingPlans.map((plan, index) => (
-                        <PricingCard key={ index } { ...plan } />
+                        <PricingCard
+                            key={ index }
+                            { ...plan }
+                            onSelect={ handleCourseSelect }
+                        />
                     )) }
                 </div>
             </Section>
+
 
             {/* Features */ }
             <Section id="преимущества" title="Почему выбирают нас">
