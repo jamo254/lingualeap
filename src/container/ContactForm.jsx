@@ -86,10 +86,13 @@ const ContactForm = () => {
                         </a>
 
                         {/* Telegram */ }
-                        <a href={ `https://t.me/${telegram}` } target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition duration-300">
-                            <FaTelegramPlane size={ 20 } />
-                            <span>Telegram</span>
-                        </a>
+                        <div>
+
+                            <a href={ `https://t.me/${telegram}` } target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition duration-300">
+                                <FaTelegramPlane size={ 20 } />
+                                <span>Telegram</span>
+                            </a>
+                        </div>
                     </div>
                     {/* <button type="submit" className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition duration-300">
                         Send
