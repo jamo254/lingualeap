@@ -137,7 +137,7 @@ const LandingPage = () => {
             <header className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-32">
                 <div className="container mx-auto text-center px-4">
                     <h1 className="text-5xl font-bold mb-4">Откройте мир с "LinguaEdge"</h1>
-                    <p className="text-xl mb-10">Изучайте иностранные языки с профессионалами</p>
+                    <p className="text-xl mb-10">Изучайте иностранные языки с носителями языка</p>
                     <button className="bg-white text-indigo-600 px-10 py-4 rounded-full font-bold hover:bg-indigo-100 transition duration-300 text-lg"
                         onClick={ scrollToContactForm }  // Scroll to ContactForm on click
                     >
