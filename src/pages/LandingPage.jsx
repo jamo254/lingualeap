@@ -13,11 +13,23 @@ const LandingPage = () => {
     const [showScrollTop, setShowScrollTop] = useState(false);
     const [selectedCourse, setSelectedCourse] = useState(null);
 
-    const contactFormRef = useRef(null);  // Create a ref for the ContactForm section
+    // const contactFormRef = useRef(null);  // Create a ref for the ContactForm section
+
+    // const scrollToContactForm = () => {
+    //     if (contactFormRef.current) {
+    //         contactFormRef.current.scrollIntoView({ behavior: 'smooth' });
+    //     }
+    // };
+
+    const contactFormRef = useRef(null);
 
     const scrollToContactForm = () => {
+        console.log("ScrollToContactForm function called");
         if (contactFormRef.current) {
+            console.log("ContactForm ref found:", contactFormRef.current);
             contactFormRef.current.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            console.log("ContactForm ref not found");
         }
     };
 
@@ -141,11 +153,11 @@ const LandingPage = () => {
             <Navbar isNavOpen={ isNavOpen } toggleNav={ toggleNav } />
 
             {/* Hero Section */ }
-            <header className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-32">
-                <div className="container mx-auto text-center px-4">
-                    <h1 className="text-5xl font-bold mb-4">Откройте мир с "LinguaEdge"</h1>
-                    <p className="text-xl mb-10">Изучайте иностранные языки с профессионалами</p>
-                    <button className="bg-white text-indigo-600 px-10 py-4 rounded-full font-bold hover:bg-indigo-100 transition duration-300 text-lg"
+            <header className="py-32 text-white bg-gradient-to-r from-indigo-600 to-purple-600">
+                <div className="container px-4 mx-auto text-center">
+                    <h1 className="mb-4 text-5xl font-bold">Откройте мир с "LinguaEdge"</h1>
+                    <p className="mb-10 text-xl">Изучайте иностранные языки с профессионалами</p>
+                    <button className="px-10 py-4 text-lg font-bold text-indigo-600 transition duration-300 bg-white rounded-full hover:bg-indigo-100"
                         onClick={ scrollToContactForm }  // Scroll to ContactForm on click
                     >
                         Записаться на пробный урок
@@ -155,19 +167,19 @@ const LandingPage = () => {
 
             {/* About Us */ }
             <Section id="о-нас" title="О нашей школе">
-                <div className="flex flex-col md:flex-row items-center justify-between">
-                    <div className="md:w-1/2 mb-8 md:mb-0">
+                <div className="flex flex-col items-center justify-between md:flex-row">
+                    <div className="mb-8 md:w-1/2 md:mb-0">
                         <img src="https://sqaeducation.org/wp-content/uploads/2024/06/AdobeStock_431659942.jpg" alt="Наша школа" className="rounded-lg shadow-lg" />
                     </div>
                     <div className="md:w-1/2 md:pl-12">
-                        <p className="text-lg mb-4">
+                        <p className="mb-4 text-lg">
                             "LinguaEdge" - это современная языковая школа, где каждый студент находит свой путь к свободному владению иностранными языками. Мы предлагаем индивидуальный подход, инновационные методики и дружественную атмосферу для эффективного обучения.
                         </p>
                         <ul className="space-y-3">
-                            <li className="flex items-center"><Check className="text-green-500 mr-3" /> Опытные преподаватели-носители языка</li>
-                            <li className="flex items-center"><Check className="text-green-500 mr-3" /> Современные учебные материалы</li>
-                            <li className="flex items-center"><Check className="text-green-500 mr-3" /> Гибкий график занятий</li>
-                            <li className="flex items-center"><Check className="text-green-500 mr-3" /> Онлайн и офлайн форматы обучения</li>
+                            <li className="flex items-center"><Check className="mr-3 text-green-500" /> Опытные преподаватели-носители языка</li>
+                            <li className="flex items-center"><Check className="mr-3 text-green-500" /> Современные учебные материалы</li>
+                            <li className="flex items-center"><Check className="mr-3 text-green-500" /> Гибкий график занятий</li>
+                            <li className="flex items-center"><Check className="mr-3 text-green-500" /> Онлайн и офлайн форматы обучения</li>
                         </ul>
                     </div>
                 </div>
@@ -175,7 +187,7 @@ const LandingPage = () => {
 
             {/* Courses */ }
             <Section id="курсы" title="Наши курсы" className="bg-gray-100">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
                     { courses.map((course, index) => (
                         <CourseCard key={ index } { ...course } />
                     )) }
@@ -184,7 +196,7 @@ const LandingPage = () => {
 
             {/* Teachers */ }
             <Section id="преподаватели" title="Наши преподаватели">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                     { teachers.map((teacher, index) => (
                         <TeacherCard key={ index } { ...teacher } />
                     )) }
@@ -193,7 +205,7 @@ const LandingPage = () => {
 
             {/* Pricing */ }
             <Section id="цены" title="Наши тарифы" className="bg-gray-100">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
                     { pricingPlans.map((plan, index) => (
                         <PricingCard
                             key={ index }
@@ -207,7 +219,7 @@ const LandingPage = () => {
 
             {/* Features */ }
             <Section id="преимущества" title="Почему выбирают нас">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                     { [
                         { title: "Индивидуальный подход", description: "Программа обучения адаптируется под ваши цели и темп", icon: Users },
                         { title: "Гибкий график", description: "Занятия в удобное для вас время", icon: Calendar },
@@ -215,35 +227,38 @@ const LandingPage = () => {
                         { title: "Международные сертификаты", description: "Подготовка к международным экзаменам", icon: Globe },
                     ].map((feature, index) => (
                         <div key={ index } className="text-center">
-                            <feature.icon className="w-16 h-16 mx-auto text-indigo-500 mb-4" />
-                            <h3 className="text-xl font-semibold mb-2">{ feature.title }</h3>
+                            <feature.icon className="w-16 h-16 mx-auto mb-4 text-indigo-500" />
+                            <h3 className="mb-2 text-xl font-semibold">{ feature.title }</h3>
                             <p>{ feature.description }</p>
                         </div>
                     )) }
                 </div>
             </Section>
 
-            {/* Testimonials */ }
-            <Section id="отзывы" title="Отзывы наших студентов" className="bg-indigo-100">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    { testimonials.map((testimonial, index) => (
-                        <TestimonialCard key={ index } { ...testimonial } />
-                    )) }
-                </div>
-            </Section>
-
             {/* Call to Action */ }
-            <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-20">
-                <div className="container mx-auto text-center px-4">
-                    <h2 className="text-4xl font-bold mb-4">Готовы начать свое языковое путешествие?</h2>
-                    <p className="text-xl mb-8">Запишитесь на бесплатный пробный урок прямо сейчас!</p>
-                    <button className="bg-white text-indigo-600 px-10 py-4 rounded-full font-bold hover:bg-indigo-100 transition duration-300 text-lg"
+            <section className="py-20 text-white bg-gradient-to-r from-indigo-600 to-purple-600">
+                <div className="container px-4 mx-auto text-center">
+                    <h2 className="mb-4 text-4xl font-bold">Готовы начать свое языковое путешествие?</h2>
+                    <p className="mb-8 text-xl">Запишитесь на бесплатный пробный урок прямо сейчас!</p>
+                    <button
+                        className="px-10 py-4 text-lg font-bold text-indigo-600 transition duration-300 bg-white rounded-full hover:bg-indigo-100"
                         onClick={ scrollToContactForm }
                     >
                         Записаться
                     </button>
                 </div>
             </section>
+
+            {/* Testimonials */ }
+            <Section id="отзывы" title="Отзывы наших студентов" className="bg-indigo-100">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+                    { testimonials.map((testimonial, index) => (
+                        <TestimonialCard key={ index } { ...testimonial } />
+                    )) }
+                </div>
+            </Section>
+
+          
 
             {/* Contact Form */ }
             <Section id="контакты" title="Свяжитесь с нами">
@@ -256,7 +271,7 @@ const LandingPage = () => {
             { showScrollTop && (
                 <button
                     onClick={ scrollToTop }
-                    className="fixed bottom-8 right-8 bg-indigo-600 text-white p-3 rounded-full shadow-lg hover:bg-indigo-700 transition duration-300"
+                    className="fixed p-3 text-white transition duration-300 bg-indigo-600 rounded-full shadow-lg bottom-8 right-8 hover:bg-indigo-700"
                 >
                     <ChevronUp size={ 24 } />
                 </button>

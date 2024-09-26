@@ -74,27 +74,28 @@ const ContactForm = () => {
                     </div> */}
                     <div className="flex items-center space-x-4">
                         {/* Phone */ }
-                        <a href={ `tel:${phoneNumber}` } className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition duration-300">
+                        <a href={ `tel:${phoneNumber}` } className="flex items-center space-x-2 text-gray-600 transition duration-300 hover:text-gray-800">
                             <Phone size={ 20 } />
                             <span>{ phoneNumber }</span>
                         </a>
 
                         {/* WhatsApp */ }
-                        <a href={ `https://wa.me/${whatsapp}?text=Hello%2C%20I%27m%20interested%20in%20your%20services!` } target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-green-600 hover:text-green-800 transition duration-300">
-                            <FaWhatsapp size={ 20 } />
-                            <span>WhatsApp</span>
-                        </a>
+                            <a href={ `https://wa.me/${whatsapp}?text=Здравствуйте%2C%20меня%20интересуют%20ваши%20услуги!` } target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-green-600 transition duration-300 hover:text-green-800">
+                                <FaWhatsapp size={ 20 } />
+                                <span>WhatsApp</span>
+                            </a>
+
 
                         {/* Telegram */ }
                         <div>
 
-                            <a href={ `https://t.me/${telegram}` } target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition duration-300">
+                            <a href={ `https://t.me/${telegram}` } target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-blue-600 transition duration-300 hover:text-blue-800">
                                 <FaTelegramPlane size={ 20 } />
                                 <span>Telegram</span>
                             </a>
                         </div>
                     </div>
-                    {/* <button type="submit" className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition duration-300">
+                    {/* <button type="submit" className="w-full px-4 py-2 text-white transition duration-300 bg-indigo-600 rounded-md hover:bg-indigo-700">
                         Send
                     </button> */}
                 </form>
