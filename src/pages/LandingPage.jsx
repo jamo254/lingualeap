@@ -258,12 +258,12 @@ const LandingPage = () => {
                 </div>
             </Section>
 
-          
+
 
             {/* Contact Form */ }
             <Section id="контакты" title="Свяжитесь с нами">
-                <div ref={ contactFormRef }>  {/* Reference to the ContactForm */ }
-                    <ContactForm />
+                <div ref={ contactFormRef }>
+                    <ContactForm selectedCourse={ selectedCourse } />
                 </div>
             </Section>
 

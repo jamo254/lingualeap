@@ -9,12 +9,12 @@ const CourseCard = ({ title, description, icon: Icon, detailedInfo }) => {
 
     return (
         <>
-            <div className="bg-white p-6 rounded-lg shadow-md text-center transform transition duration-500 hover:scale-105">
-                <Icon className="w-16 h-16 mx-auto text-indigo-500 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">{ title }</h3>
+            <div className="p-6 text-center transition duration-500 transform bg-white rounded-lg shadow-md hover:scale-105">
+                <Icon className="w-16 h-16 mx-auto mb-4 text-indigo-500" />
+                <h3 className="mb-2 text-xl font-semibold">{ title }</h3>
                 <p>{ description }</p>
                 <button
-                    className="mt-4 bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition duration-300"
+                    className="px-4 py-2 mt-4 text-white transition duration-300 bg-indigo-500 rounded hover:bg-indigo-600"
                     onClick={ openModal }
                 >
                     Подробнее
@@ -22,9 +22,9 @@ const CourseCard = ({ title, description, icon: Icon, detailedInfo }) => {
             </div>
 
             { isModalOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
                     <div className="bg-white rounded-lg p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto">
-                        <div className="flex justify-between items-center mb-4">
+                        <div className="flex items-center justify-between mb-4">
                             <h2 className="text-2xl font-bold">{ title }</h2>
                             <button onClick={ closeModal } className="text-gray-500 hover:text-gray-700">
                                 <X size={ 24 } />
@@ -34,7 +34,7 @@ const CourseCard = ({ title, description, icon: Icon, detailedInfo }) => {
                             { detailedInfo }
                         </div>
                         <button
-                            className="mt-6 bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 transition duration-300"
+                            className="px-4 py-2 mt-6 text-white transition duration-300 bg-indigo-500 rounded hover:bg-indigo-600"
                             onClick={ closeModal }
                         >
                             Закрыть
